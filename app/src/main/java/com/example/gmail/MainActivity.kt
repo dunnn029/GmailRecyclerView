@@ -1,8 +1,9 @@
 package com.example.gmail
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ListView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,8 +14,10 @@ class MainActivity : AppCompatActivity() {
         val mailList = FakeDataSource().getListMail()
 
         // Tạo Adapter cung cấp dữ liệu cho listView
-        val listViewAdapter = ListMailAdapter(mailList)
-        val listView: ListView = findViewById(R.id.listView)
-        listView.adapter = listViewAdapter
+        val recyclerViewAdapter = MailAdapter(mailList)
+        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
+        val linearLayoutManager: LinearLayoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = linearLayoutManager
+        recyclerView.adapter = recyclerViewAdapter
     }
 }
