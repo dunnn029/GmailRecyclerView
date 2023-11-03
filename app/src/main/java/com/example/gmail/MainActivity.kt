@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         // Tạo Adapter cung cấp dữ liệu cho listView
         val recyclerViewAdapter = MailAdapter(mailList)
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
-        val linearLayoutManager: LinearLayoutManager = LinearLayoutManager(this)
+        val linearLayoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = linearLayoutManager
         recyclerView.adapter = recyclerViewAdapter
     }
